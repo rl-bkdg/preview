@@ -1,0 +1,731 @@
+@import url("./../../../fonts/Gilroy/index.css");
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-8 .elementor-widget-container :where(p) {
+  font-size: clamp(12px, 9.5px + (1vw * 0.70), 16px);
+  line-height: clamp(16px, 12px + (1vw * 1.2), 24px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-_9 .elementor-widget-container :where(p) {
+  font-size: 0.9rem;
+  line-height: 1.32rem;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-2_3 .elementor-widget-container :where(h2) {
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+  padding: 0 0 clamp(22px, 17px + (1vw * 1.5), 32px) clamp(22px, 17px + (1vw * 1.5), 32px);
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-2_3 .elementor-widget-container :where(h2) {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-1_7 .elementor-widget-container :where(h2) {
+  font-size: clamp(22px, 17.5px + (1vw * 1.7), 34px);
+  line-height: clamp(28px, 21px + (1vw * 2.30), 44px);
+  padding: 0 0 clamp(22px, 17px + (1vw * 1.5), 32px) clamp(22px, 17px + (1vw * 1.5), 32px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-1_2 .elementor-widget-container :where(h3) {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-1_2 .elementor-widget-container :where(h3) {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-1_3 .elementor-widget-container :where(h4) {
+  font-family: 'Sora', Sans-serif;
+  font-size: 1.4em;
+  line-height: 1.2em;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-1_3 .elementor-widget-container :where(h4) --off-- {
+  font-size: clamp(18px, 14px + (1vw * 1.06), 24px);
+  line-height: clamp(28px, 25px + (1vw * 0.7), 32px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) #content #primary #main :where([class*=' elementor-']) :is([class*=' elementor-element-'].elementor-element).fnt-1_7_p-1_5 .elementor-widget-container :where(h2) {
+  font-size: clamp(22px, 17.5px + (1vw * 1.7), 34px);
+  line-height: clamp(28px, 21px + (1vw * 2.30), 44px);
+  padding: clamp(1.0rem, 0.1rem + (1vw * 1.6), 1.38rem)  clamp(1.15rem, .15rem + (1vw * .6), 1.15rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) >.tooltip[role='tooltip'].p_03 >.tooltip-inner {
+  padding-block-end: 0.2em;
+  padding-block-start: 0.07em;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article {
+  font-family: 'Poppins', Gilroy, Roboto, sans-serif;
+  padding: 0;
+  --ast-global-color-2: #224156;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article header.entry-header {
+  display: none;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .section-padding {
+  padding: 6rem 4rem;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .section-padding {
+    padding: 4rem 2rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article a.elementor-button {
+  padding: clamp(1.18rem, 1.0rem + (1vw * 1.0), 1.9rem) clamp(0.9rem, 0.7rem + (1vw * 1.5), 2.02rem) clamp(1.18rem, 1.0rem + (1vw * 1.0), 1.9rem);
+  border-radius: clamp(0.481rem, .4rem + (1vw * .6), 0.68rem);
+  color: #fff;
+  background-color: #224156;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article a.elementor-button:is(:hover,:focus) {
+  background-color: #305d7b;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article a.elementor-button >:nth-child(1) {
+  align-items: center;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article a.elementor-button >:nth-child(1) .elementor-button-icon {
+  height: 0;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article a.elementor-button >*>* {
+  font-size: clamp(1.5rem, 1rem + (1vw * 1.7), 2.36rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article :is(h2,h3) {
+  font-family: 'Sora', Sans-serif;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article h2.elementor-heading-title {
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 4.4rem;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article h2.elementor-heading-title {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article h3.elementor-heading-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 3.4rem;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article h3.elementor-heading-title {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article h5.elementor-heading-title {
+  color: #e89b26;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content {
+  height: clamp(-1243.44px, 90rem + 15.0vw, 1111442.4px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .elementor-shape-bottom {
+  z-index: 3;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .elementor-shape-bottom >svg {
+  left: 30%;
+  width: calc(400% + 1.3px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .elementor-shape-bottom >svg path {
+  fill: url("#icon-gradient_71mfgTT_0");
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content::after1 {
+  box-shadow: 0 -1px 10px 8px #030803;
+  content: '';
+  height: 0.1em;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 3;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root {
+  align-items: center;
+  height: 0;
+  position: relative;
+  width: auto;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap {
+/* background: #faebd77811 */
+  display: flex;
+  height: auto /* left: unquote('clamp(2.5em, -1em + (.7vw * 14.7), 7.232em)') */;
+  min-width: 19em;
+  padding: 0 clamp(1.2em, 1.2em + (.7vw * 1), 1.76em);
+  position: absolute;
+  top: clamp(var(--top-min), calc(var(--top-min) + 1em) + (.7vw * 7), 8.72em);
+  width: auto /* width: unquote('clamp(26em, 5em + (.7vw * 100), 61em)') */;
+  width: clamp(17.48em, 4.3em + (.7vw * 100), 61em);
+  z-index: 3;
+  --top-min: calc(var(--ast_ch__header-bar--h, 4em) - 1.2em);
+/* >.block:nth-child(2)
+                            .title h2
+                                ttl(s: 3)
+                                text-align: center
+            
+                                @media (max-width: 767px)
+                                    font-size: 1.8rem
+                                    line-height: 2.4rem
+            
+                            .text h4
+                                ttl(s: 5)
+                                text-align: end
+            
+                        >.block:nth-child(3)
+                            .title h2
+                                ttl(s: 3)
+                                text-align: center
+            
+                            .text h4
+                                ttl(s: 5) */
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap {
+    gap: 0;
+    --top-min: calc(var(--ast_ch__header-bar--h, 4em) - 0.2em);
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap :is(h2,
+h3,
+h4) {
+  color: #fff;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap .divider {
+  --divider-color: #fff;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap .block h4 {
+  color: #d0f5ff;
+  font-size: 1.3rem;
+  line-height: 2.1rem;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap .block h4 {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:nth-child(1) {
+  padding: clamp(2.31rem, 1.6rem + (1vw * 4.4), 5.12rem) 0 clamp(1.76rem, 1.0rem + (1vw * 4.4),4.52rem);
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:nth-child(1) {
+    padding-bottom: clamp(54px,62px - 1.4vw, 54rem);
+  }
+}
+@media (max-width: 577px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:nth-child(1) {
+    padding-bottom: clamp(18px, 4px + 8vw, 48px);
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:nth-child(1) .title h2 {
+  font-size: clamp(5.1rem, 2rem + 5.8vw, 6.4rem);
+  line-height: clamp(5.7rem, 2.6rem + 5.8vw, 7rem);
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:nth-child(1) .title h2 {
+    font-size: clamp(3rem, 1.6rem + 6.8vw, 5.2rem);
+    line-height: clamp(3.6rem, 2.2rem + 6.8vw, 5.8rem);
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:is(:nth-child(2),:nth-child(4)) .title h2 {
+  color: #e89b26;
+  font-size: 2.6rem;
+  line-height: 3.4rem;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .wrap_hero-dual-e-shop-root .hero-dual-e-shop-root >.wrap >.block:is(:nth-child(2),:nth-child(4)) .title h2 {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content >*,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content >*>*,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1>*,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2>*,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c3,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c3>* {
+  margin: 0;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l {
+  height: 0;
+  min-width: 100%;
+  position: relative;
+  width: 100%;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >* {
+  position: absolute;
+  z-index: 2;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l {
+  position: absolute;
+  z-index: 2;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-l,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-m,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r {
+  position: absolute;
+  z-index: 2;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-m {
+  z-index: 2;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 h3,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 h3,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 h5,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 h5 {
+  color: #fff;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l {
+  align-items: center;
+  justify-content: flex-start;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >*,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* {
+  background-color: rgba(0,0,0,0.58);
+  border-radius: 1.7vh;
+  max-width: 90vw;
+  width: clamp(17.438rem, 19rem + (1vw * 18.6), 33.88rem);
+  padding: clamp(-.299rem, 1rem + (1vw * 1.6), 1111.68rem) clamp(-.299rem, 1.2rem + (1vw * 2.6), 1111.68rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* h3,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* h3 {
+  line-height: clamp(1.705rem, 1.7rem + (1vw * 0.8), 2.34rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* h5,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* h5 {
+  line-height: clamp(1.295rem, 1.25rem + (1vw * 0.8), 1.89rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* .btn a,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* .btn a {
+  padding: clamp(1.18rem, 1.0rem + (1vw * 1.0), 1.9rem) clamp(0.9rem, 0.7rem + (1vw * 1.5), 2.02rem) clamp(1.18rem, 1.0rem + (1vw * 1.0), 1.9rem);
+  border-radius: clamp(0.481rem, .4rem + (1vw * .6), 0.68rem);
+  color: #fff;
+  background-color: #224156;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* .btn a:is(:hover,:focus),
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* .btn a:is(:hover,:focus) {
+  background-color: #305d7b;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* .btn a >:nth-child(1),
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* .btn a >:nth-child(1) {
+  align-items: center;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* .btn a >:nth-child(1) .elementor-button-icon,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* .btn a >:nth-child(1) .elementor-button-icon {
+  height: 0;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >* .btn a >*>*,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .cta-l >* .btn a >*>* {
+  font-size: clamp(1.5rem, 1rem + (1vw * 1.7), 2.36rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 {
+  top: clamp(0.76em,0.5em + (.1vw * 10), 1.3em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r {
+  top: clamp(10.47em, 10em + (.1vw * 70), 15.6em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(1) {
+  left: clamp(2.18em, (.7vw * 71), 39.76em);
+  opacity: 0;
+  top: -1em;
+  transition: opacity 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.2s, top 0.3s ease-out 0.2s, left 0.6s cubic-bezier(0.39, 0.58, 0.57, 1) 0.2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(1) img {
+  min-width: 0;
+  width: 0;
+  transition: min-width 0.6s cubic-bezier(0.4, 0, 1, 1) .6s, translate 0.12s cubic-bezier(0.4, 0, 1, 1) .4s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(1).an-on img {
+  transition: min-width 0.4s cubic-bezier(0.4, 0, 1, 1) .4s, translate 0.4s cubic-bezier(0.4, 0, 1, 1) .4s;
+/* translate: unquote('clamp(0.532em,-8.7em + (1vw * 43.7), 26.26em) clamp(13.841em,19em + (1vw * -11.1), 15.177em)') */
+  translate: 0 0;
+  min-width: clamp(-4.867em, 3.3rem + 7vw, 8.89rem);
+  width: clamp(-4.867em, 3.3rem + 7vw, 8.89rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(1).an-on {
+  left: clamp(2rem, -4.5rem + 22.2vw , 48.78rem);
+  opacity: 1;
+  top: -5.094rem;
+  transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.2s, top 0.15s ease-out 0.2s, left 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 0.2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(2) {
+  left: clamp(11em, -9em + (1vw * 66), 56.2em);
+  opacity: 0;
+  top: 14em;
+  transition: opacity 0.07s cubic-bezier(0.46, 0.03, 0.52, 0.96), top 0.09s ease-out 0.04s, left 0.06s ease-in-out;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(2) img {
+  min-width: 0;
+  width: 0;
+  transition: min-width .012s cubic-bezier(.55, .09, .68, .53) .3s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(2).an-on img {
+  transition: min-width .8s cubic-bezier(.55, .09, .68, .53) .2s;
+  translate: 0 0;
+  min-width: clamp(5.562em, 1em + (1vw * 24), 14.2em);
+  width: clamp(5.562em, 1em + (1vw * 24), 14.2em);
+  translate: 0 0;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(2).an-on {
+  left: clamp(12rem, -3em + 76vw , 178rem);
+  opacity: 1;
+  top: -4.094em;
+  transition: opacity 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.2s, top 0.5s ease-out, left 0.6s ease-in-out 0.2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(3) {
+  left: 3.5em;
+  opacity: 0;
+  top: 11em;
+  transition: opacity 0.001s cubic-bezier(0.46, 0.03, 0.52, 0.96), top 0.3s cubic-bezier(0.4, 0, 1, 1), left 0.6s cubic-bezier(0.4, 0, 0.08, 0.44);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(3) img {
+  min-width: 5em;
+  width: 5em;
+  transition: min-width .012s cubic-bezier(.55, .09, .68, .53) .2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(3).an-on img {
+  transition: min-width .2s cubic-bezier(.55, .09, .68, .53) .2s;
+/* translate: unquote('clamp(0.532em,-8.7em + (1vw * 43.7), 26.26em) clamp(13.841em,19em + (1vw * -11.1), 15.177em)') */
+  translate: 0 0;
+  min-width: clamp(14em, -11em + (1vw * 90), 29em);
+  width: clamp(14em, -11em + (1vw * 90), 29em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .imgs-r >:nth-child(3).an-on {
+  left: clamp(5.704em, -8em + (1vw * 48), 112.1em);
+  opacity: 1;
+  top: clamp(-1.54em, 12em + (.1vw * -262), 5.86em);
+  transition: opacity 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.1s, top 0.3s cubic-bezier(0.4, 0, 1, 1), left 0.4s cubic-bezier(0.4, 0, 0.08, 0.44);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r {
+  right: calc(50vw - (25em / 2));
+  top: clamp(9em,6em + (1vw * 11), 14em);
+  width: 25em;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >*.on {
+  opacity: 1;
+  scale: 1;
+  transition: translate 0.1s ease-in-out, scale 0.2s ease-in 0.05s, opacity 0.3s ease-in 0.1s;
+  translate: 0 0;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c1 .page-shops-b1 .cta-r >*:not(.on) {
+  opacity: 0;
+  scale: 0.1;
+  transition: translate 0.15s ease-in-out, scale 0.04s ease-in 0.02s, opacity 0.06s ease-in 0.06s;
+  translate: -13vw clamp(-1.437em, -2em + (1vw * 2), -.4em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 {
+  top: clamp(50.0em, 65.0em + (.1vw * -195), 57.2em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-l {
+  bottom: clamp(-29em, 7em + (.1vw * -450), 7.6em);
+  left: clamp( -24.86em,-27em + (.1vw * -142), -22.67em);
+  opacity: 0;
+  transition: opacity 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.05s, bottom 0.75s ease-out 0.1s, left 0.15s cubic-bezier(0.39, 0.58, 0.57, 1) 0.1s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-l.an-on {
+  bottom: clamp(-2em, 22em + (.1vw * -300), 11.8em);
+  left: clamp(-13.5em,-13.5em + (.1vw * 42), 9.2em);
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.2s, bottom 0.15s ease-out 0.2s, left 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 0.2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-l img {
+  min-width: 0;
+  width: 0;
+  transition: min-width 0.6s cubic-bezier(0.4, 0, 1, 1) .6s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-l.an-on img {
+  transition: min-width 0.4s cubic-bezier(0.4, 0, 1, 1) .4s;
+/* translate: unquote('clamp(0.532em,-8.7em + (1vw * 43.7), 26.26em) clamp(13.841em,19em + (1vw * -11.1), 15.177em)') */
+  translate: 0 0;
+  min-width: clamp(16.81em, 15.7em + (1vw * 12.9), 26.01em);
+  width: clamp(16.81em, 15.7em + (1vw * 12.9), 26.01em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-m {
+  bottom: clamp(-29em, 17em + (.1vw * -450), 7.6em);
+  left: clamp(17.48em, 17em + (.1vw * 102), 25.16em);
+  opacity: 0;
+  transition: opacity 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.05s, bottom 0.75s ease-out 0.1s, left 0.15s cubic-bezier(0.39, 0.58, 0.57, 1) 0.1s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-m.an-on {
+  bottom: clamp(-6em, 19em + (.1vw * -170), 15em);
+  left: clamp(2.93em, -1.5em + (.1vw * 222), 16.76em);
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.2s, bottom 0.15s ease-out 0.2s, left 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 0.2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-m img {
+  min-width: 0;
+  width: 0;
+  transition: min-width 0.6s cubic-bezier(0.4, 0, 1, 1) .6s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-m.an-on img {
+  transition: min-width 0.4s cubic-bezier(0.4, 0, 1, 1) .4s;
+/* translate: unquote('clamp(0.532em,-8.7em + (1vw * 43.7), 26.26em) clamp(13.841em,19em + (1vw * -11.1), 15.177em)') */
+  translate: 0 0;
+  min-width: clamp(14.90em, 5.7em + (1vw * 50.1), 45.77em);
+  width: clamp(14.90em, 5.7em + (1vw * 50.1), 45.77em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r {
+  bottom: clamp(-40em, -8.6em + -30.8vw, -13rem);
+  left: auto;
+  right: -8rem;
+  transition: opacity 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.05s, bottom 0.75s ease-out 0.1s, left 0.15s cubic-bezier(0.39, 0.58, 0.57, 1) 0.1s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r --off--.an-on {
+  bottom: clamp(-25.64em, -2.6em + (.1vw * -288), -7.95em);
+  opacity: 1;
+  right: clamp(-8.59em, -11em + (.1vw * 56), -7.83em);
+  transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) 0.2s, bottom 0.15s ease-out 0.2s, left 0.3s cubic-bezier(0.39, 0.58, 0.57, 1) 0.2s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r --off--[data-aos^=fade][data-aos^=fade].aos-animate {
+  opacity: 1;
+  right: clamp(-6.9rem, -7rem - .7vw, -7.5rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r --off--:not([data-aos^=fade][data-aos^=fade].aos-animate) {
+  opacity: 0;
+  right: clamp(-8.59em, -11em + (.1vw * 56), -7.83em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r img {
+  min-width: 0;
+  width: 0;
+  transition: min-width 0.6s cubic-bezier(0.4, 0, 1, 1) .6s;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .page-shops-b2 .imgs-l .shops-bg-sub-dogs-cats-r.an-on img {
+  transition: min-width 0.4s cubic-bezier(0.4, 0, 1, 1) .4s;
+/* translate: unquote('clamp(0.532em,-8.7em + (1vw * 43.7), 26.26em) clamp(13.841em,19em + (1vw * -11.1), 15.177em)') */
+  translate: 0 0;
+  min-width: clamp(14.08em, 12.7em + (1vw * 12.9), 23.01em);
+  width: clamp(14.08em, 12.7em + (1vw * 12.9), 23.01em);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .cta-l {
+  left: calc(50vw - (25em / 2));
+  top: -37.5em;
+  width: 25em;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .cta-l >*.on {
+  opacity: 1;
+  scale: 1;
+  transition: translate 0.1s ease-in-out, scale 0.2s ease-in 0.05s, opacity 0.3s ease-in 0.1s;
+  translate: 0 0;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c2 .cta-l >*:not(.on) {
+  opacity: 0;
+  scale: 0.1;
+  transition: translate 0.15s ease-in-out, scale 0.04s ease-in 0.02s, opacity 0.06s ease-in 0.06s;
+  translate: 0 clamp(-8.4em, -8.4em + (1vw * 2), 6em) /*
+             */;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .page-shops_content .c3 {
+  height: 100%;
+  position: absolute;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0-img .elementor-shape-top {
+  z-index: 2;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0-img .elementor-shape-top >svg {
+  height: 5em;
+  width: calc(400% + 1.3px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0-img .elementor-shape-top >svg path {
+  fill: url("#icon-gradient_71mfgTT_1");
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0-img .title h2 {
+/* sec_title('20px_32px') */
+  font-size: clamp(22px, 17.5px + (1vw * 1.7), 34px);
+  line-height: clamp(28px, 21px + (1vw * 2.30), 44px);
+  padding-bottom: clamp(22px, 17px + (1vw * 1.5), 32px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0 .r1-1 .title h2 {
+  font-size: clamp(22px, 17.5px + (1vw * 1.7), 34px);
+  line-height: clamp(28px, 21px + (1vw * 2.30), 44px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0 .r1-2 .raw-html {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 50px;
+  max-width: 500px;
+  position: relative;
+  width: 100%;
+  -webkit-box-align: center;
+  -webkit-box-pack: end;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0 .r1-2 .raw-html >span {
+  background-color: #111;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-0 .r1-2 .raw-html >svg {
+  margin-right: 80px;
+  position: relative;
+  width: 80px;
+  z-index: 2;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters {
+  justify-content: start;
+  overflow: visible;
+  position: relative;
+  width: 100vw;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con {
+  position: relative;
+  top: calc(-100% - 3rem);
+  z-index: 4;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con {
+    --column-gap: 0;
+    --e-con-grid-template-columns: repeat(2, 1fr);
+    --gap: 0 0;
+    --grid-auto-flow: row;
+    --padding-bottom: 20px;
+    --padding-left: 10px;
+    --padding-right: 10px;
+    --padding-top: 20px;
+    --row-gap: 0;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter > .elementor-widget-container {
+  border-color: #fff;
+  border-style: solid;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter > .elementor-widget-container:not(:last-child) {
+  margin-bottom: var(0);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter > .elementor-widget-container:nth-child(1) {
+  border-width: 0 1px 0 0;
+  padding: 10px;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter:last-child > .elementor-widget-container {
+  border-style: none;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter:nth-child(1) > .elementor-widget-container {
+    border-width: 0 1px 1px 0;
+  }
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter:nth-child(2) > .elementor-widget-container {
+    border-width: 0 0 1px 0;
+  }
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter:nth-child(4) > .elementor-widget-container {
+    border-style: none;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter {
+  color: #fff;
+  font-family: 'Poppins', Sans-serif;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter-title {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 8.5px 0 3.5px;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter-title {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter-title {
+    font-size: 13px;
+    line-height: 1.1em;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter-number-wrapper {
+  font-size: 75px;
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter-number-wrapper {
+    font-size: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .hero-counters > .e-con > .elementor-widget-counter .elementor-counter-number-wrapper {
+    font-size: 40px;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .title h2 {
+  font-size: clamp(1.631rem, 1.3rem + (1vw * 2.3), 2.36rem);
+  padding: clamp(2.18rem, 0.1rem + (1vw * 10.8), 8.74rem) 1em clamp(0rem, -2.3rem + (1vw * 10.8), 6.34rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .txt {
+  padding: clamp(0.42rem, 0.1rem + (1vw * 1.7), 1.46rem) clamp(0.96rem, 0.7rem + (1vw * 1.7), 2.06rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .txt p {
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .txt p {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .block-2-title h2,
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .block-2-title h3 {
+  padding: clamp(1.0rem, 0.1rem + (1vw * 1.6), 1.38rem)  clamp(1.15rem, .15rem + (1vw * .6), 1.15rem);
+}
+@media (max-width: 767px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .block-2-title h2,
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .block-2-title h3 {
+    margin: 0;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .block-2-txt p {
+  font-size: clamp(12px, 9.5px + (1vw * 0.70), 16px);
+  line-height: clamp(16px, 12px + (1vw * 1.2), 24px);
+  padding: clamp(.4rem, 0.1rem + (1vw * 1.3), 1.14rem)  clamp(.4rem, 0.1rem + (1vw * 1.1), 0.98rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .shipping-icons-set {
+  column-gap: 0.5em;
+  padding: clamp(.0rem, 0.1rem + (1vw * 1.1), 1.14rem)  clamp(1.86rem, 1.7rem + (1vw * 1.6), 2.98rem);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .shipping-icons-set img {
+  filter: saturate(0);
+  height: 20px;
+  object-fit: contain;
+  object-position: center center;
+  width: auto;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-1 .shipping-icons-set img:hover {
+  filter: saturate(1);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-2 h2 {
+  padding: 0 0 clamp(22px, 17px + (1vw * 1.5), 32px) clamp(22px, 17px + (1vw * 1.5), 32px);
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-4 *>*>*>:nth-child(1) {
+  max-width: 36rem;
+  min-width: 25rem;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-4 *>*>*>:nth-child(2) {
+  max-width: 34rem;
+  min-width: 34rem;
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-4 *>*>*>:nth-child(2).txt-cnt {
+  min-height: 31rem;
+}
+@media (max-width: 1024px) {
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-4 *>*>*>:nth-child(1) {
+    max-width: initial;
+    min-width: auto;
+  }
+  .body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-4 *>*>*>:nth-child(2) {
+    max-width: initial;
+    min-width: auto;
+  }
+}
+.body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404,.page) .page-shops #content #primary #main >article .sec-4 *>*>*>*:is(:nth-child(1),:nth-child(2)) >* {
+  max-width: initial;
+  min-width: initial;
+}

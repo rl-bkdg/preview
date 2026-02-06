@@ -1,0 +1,28 @@
+/*
+Theme Name:   Astra Child-001 Theme
+Theme URI:    https://example.com/astra-child-001/
+Description:  Astra Child-001 Theme - Customize your Astra theme without losing changes on update!
+Author:       Your Name
+Author URI:    https://example.com
+Template:     astra
+Version:      1.0.0
+Text Domain:  astra-child-001
+*/
+
+/* ==========================================================================
+   Table of Contents:
+   1. Imports
+   2. General Styles
+   3. Header Styles
+   4. Content Styles
+   5. Footer Styles
+   6. Responsive Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Imports
+   ========================================================================== */
+
+/* Import the Astra Theme's CSS (optional - useful if you want to modify existing Astra styles) */
+@import url('../astra/style.css');
+@import url('./assets/css/main.css');
