@@ -1,0 +1,227 @@
+(function(w) {
+  if (typeof window.lottieAnimationsFactory > "u") {
+    const y = (r) => r !== null && typeof r == "object" && !Array.isArray(r), p = (r) => {
+      const e = typeof r == "string" || typeof r == "number" ? String(r).trim().toLowerCase() : r;
+      return e === !0 || e === 1 || e === "true" || e === "yes" || e === "on";
+    }, _ = (r) => !(typeof r > "u" || !r || typeof r != "object" || // Use this reliable check instead of instanceof:
+    r.nodeType !== 1);
+    window.lottieAnimationsFactory = {
+      bundle: async function(r) {
+        const o = await (await fetch(r)).arrayBuffer(), t = await JSZip.loadAsync(o);
+        if (t.files["manifest.json"]) {
+          const a = await t.files["manifest.json"].async("string");
+          JSON.parse(a);
+        }
+        let l = null;
+        for (const a of Object.keys(t.files))
+          if (a.endsWith(".json") && a !== "manifest.json") {
+            const f = await t.files[a].async("string");
+            l = JSON.parse(f);
+            break;
+          }
+        if (!l)
+          throw new Error("No animation JSON found in bundle");
+        if (l.assets) {
+          for (const a of l.assets)
+            if (a.p) {
+              const f = "images/" + a.p;
+              if (t.files[f]) {
+                const m = await t.files[f].async("blob"), u = URL.createObjectURL(m);
+                a.p = u, a.u = "";
+              }
+            }
+        }
+        return l;
+      },
+      setup: function(r, e) {
+        if (!y(r) || (typeof r.path > "u" || !r.path) && (typeof r.animationData > "u" || !r.animationData))
+          throw new Error(
+            "Missing required Lottie config parameters: 'path' or 'animationData' are required."
+          );
+        if (!y(e) || typeof e.lottie_renderer > "u" || typeof e.speed > "u" || typeof e.scroll_start > "u" || typeof e.scroll_end > "u")
+          throw new Error(
+            "Missing required Lottie option parameters: renderer, speed, scroll_start, or scroll_end are missing."
+          );
+        if (typeof r.container > "u" || !r.container || typeof r.container.constructor > "u" || !_(r.container))
+          throw new Error(
+            "Missing or invalid Lottie config: 'container' must be a valid DOM HTMLElement."
+          );
+        r.path && "animationData" in r && delete r.animationData;
+        const o = r.container;
+        e.autoplay = p(e.autoplay), e.loop = p(e.loop), e.loop_ping_pong_on = !1, e.reverse = p(e.reverse);
+        const t = lottie.loadAnimation({
+          renderer: e.lottie_renderer,
+          // Yoda syntax applied to "yes" comparison
+          autoplay: e.autoplay === "yes",
+          ...r
+        });
+        t.autoplay = e.autoplay, t.loop = e.trigger === "viewport" ? !1 : e.loop, r.container._lottieAnim = t, t.setSpeed(e.speed), t.addEventListener("DOMLoaded", () => {
+          let l = 0, a = t.totalFrames;
+          typeof e.timeline_range_start < "u" && e.timeline_range_start && (l = t.totalFrames * (e.timeline_range_start / 100)), typeof e.timeline_range_end < "u" && e.timeline_range_end && (a = t.totalFrames * (e.timeline_range_end / 100));
+          const f = [];
+          Array.isArray(e.speed_points) && (e.speed_points.forEach((d) => {
+            const i = d.from_to_frame_range_percent?.sizes;
+            if (typeof i < "u") {
+              const s = Math.round(
+                (i.start || 0) / 100 * a
+              ), n = Math.round(
+                (i.end || 0) / 100 * a
+              );
+              f.push({
+                start: s,
+                end: n,
+                s: d.speed?.size || 1
+              });
+            }
+          }), f.sort((d, i) => d.f - i.f)), t.goToAndStop(l, !0), e.autoplay === !0 && t.playSegments([l, a], !0);
+          let m = null;
+          const u = (() => {
+            let d = e.reverse;
+            return {
+              play(i) {
+                typeof i > "u" && (i = !1), this.rv = !!i, m && clearTimeout(m);
+                let s = 0;
+                i || (s = parseFloat(e.delay) < 10 ? e.delay * 1e3 : e.delay);
+                let n = l;
+                s ? requestAnimationFrame(() => {
+                  t.goToAndStop(l, !0);
+                }) : (n = t.currentFrame + l, n = n > a ? a : n), m = setTimeout(() => {
+                  requestAnimationFrame(d ? () => {
+                    t.playSegments([n, l], !0);
+                  } : () => {
+                    t.playSegments([n, a], !0);
+                  }), m = null;
+                }, s);
+              },
+              reset: () => {
+                t.setDirection(e.reverse ? -1 : 1);
+              },
+              get rv() {
+                return d;
+              },
+              set rv(i) {
+                d = !!i, t.setDirection(d ? -1 : 1);
+              }
+            };
+          })();
+          u.reset(), t.addEventListener("enterFrame", function(i) {
+            let s = e.speed;
+            if (e.trigger === "viewport" && !o._in_viewport && i.direction !== 1 && e.speed === 2.33 && (s = e.shutdown_speed), f.length) {
+              const n = {
+                start: -1,
+                end: -1,
+                speed: -1
+              };
+              f.forEach((c) => {
+                i.currentTime >= c.start && i.currentTime <= c.end && n.start < c.start && (n.start = c.start, n.end = c.end, n.speed = c.s);
+              }), -1 < n.start && -1 < n.end && -1 < n.speed && (n.start > i.currentTime || n.end < i.currentTime) && (n.speed = s), -1 < n.speed ? t.setSpeed(n.speed) : t.setSpeed(s);
+            }
+            if (e.trigger !== "scroll")
+              if (!["viewport", "scroll"].includes(e.trigger) || o._in_viewport !== "undefined" && o._in_viewport) {
+                if (e.loop === !0) {
+                  const n = i.currentTime + l, c = a;
+                  i.direction === -1 ? n <= l + 1 && (e.loop_ping_pong ? requestAnimationFrame(() => {
+                    t.setDirection(i.direction * -1);
+                  }) : requestAnimationFrame(() => {
+                    t.goToAndPlay(c, !0);
+                  })) : n >= c - 2 && (e.loop_ping_pong ? requestAnimationFrame(() => {
+                    t.setDirection(i.direction * -1);
+                  }) : requestAnimationFrame(() => {
+                    t.goToAndPlay(l, !0);
+                  }));
+                }
+              } else e.trigger === "viewport" && o._in_viewport;
+          });
+          const F = () => {
+            const d = o.ownerDocument.documentElement, i = d.clientHeight;
+            d.clientWidth;
+            const s = o.getBoundingClientRect();
+            let n, c;
+            c = s.height * -1, n = i;
+            {
+              const g = (i > s.height ? i - s.height : s.height - i) / 2;
+              c += g, n -= g;
+            }
+            if (s.top < n && s.top > c) {
+              const g = (
+                // Math.abs(minTop) + Math.abs(minBottom);
+                // max * 2
+                Math.abs(c) + n
+              ), h = (
+                //rect.top < 0 ? minTop + Math.abs(rect.top) : minTop - rect.top;
+                s.top < 0 ? n + Math.abs(s.top) : n - s.top
+              );
+              return Math.round(h / g * 100);
+            }
+            return !1;
+          }, T = w.throttle(() => {
+            const d = 100 - getScrollMid();
+            if (d > e.scroll_start && d < e.scroll_end) {
+              const s = a - l, n = e.scroll_end - e.scroll_start, c = (d - e.scroll_start) / n, g = Math.max(0, Math.min(1, c)) * s, h = Math.max(
+                0,
+                Math.min(s - 1, g)
+              );
+              requestAnimationFrame(() => {
+                t.goToAndStop(h, !0);
+              });
+            }
+          }, 1);
+          function A() {
+            if (typeof o.getBoundingClientRect == "function") {
+              const d = o.getBoundingClientRect();
+              if (d.top !== 0 && d.bottom !== 0) {
+                if (e.trigger === "viewport") {
+                  const i = F(), s = i !== !1 && i > e.scroll_start && i < e.scroll_end;
+                  s && (typeof o._in_viewport > "u" || !o._in_viewport) ? (e.reverse === !0 ? u.play(!0) : u.play(!1), o._in_viewport = !0) : s || (e.reverse === !0 ? u.play(!1) : u.play(!0), o._in_viewport = !1);
+                }
+                e.trigger === "scroll" && T();
+              }
+            }
+          }
+          typeof e.trigger < "u" && (["viewport", "scroll"].includes(e.trigger) ? (A(), w(window).on("scroll resize", A)) : e.trigger === "hover" && (o.addEventListener("mouseenter", function() {
+            t.goToAndPlay(l, !0);
+          }), o.addEventListener("mouseleave", function() {
+            t.goToAndStop(l, !0);
+          })));
+        });
+      }
+    };
+  }
+})(window.jQuery);
+(function(w) {
+  const y = WdgtLottieAnimationVars.Name, p = `${y}.default`, _ = `wdgt${y}`;
+  if (typeof window.lottieAnimationsFactory > "u")
+    throw new Error(`Lottie Factory dependency not found for ${p}`);
+  const r = (e) => {
+    const o = e.find(`.${_}`);
+    if (o.length === 0)
+      return;
+    const t = o.attr("data-settings"), l = o.data("json-url")?.trim(), a = o.data("file-url")?.trim();
+    try {
+      const f = JSON.parse(t || "{}"), m = (u) => {
+        lottieAnimationsFactory.setup(
+          {
+            ...u,
+            container: o[0]
+          },
+          f
+        );
+      };
+      l ? m({ path: l }) : a && lottieAnimationsFactory.bundle && lottieAnimationsFactory.bundle(a).then((u) => {
+        m({ animationData: u });
+      }).catch((u) => {
+        console.error(`Failed to load Lottie bundle from ${a}:`, u);
+      });
+    } catch (f) {
+      console.error(`Error processing Lottie widget ${p}:`, f);
+    }
+  };
+  w(() => {
+    window.elementorFrontend && window.elementorFrontend.hooks ? window.elementorFrontend.hooks.addAction(
+      `frontend/element_ready/${p}`,
+      r
+    ) : console.error("Elementor frontend API not found.", {
+      win: window
+    });
+  });
+})(window.jQuery);

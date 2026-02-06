@@ -1,0 +1,434 @@
+(function ($) {
+  "use strict";
+  // Call plugin method
+  const bodyClass =
+    ".body_astra-child-001:is(.wp-singular, .archive.tax-product_cat, .archive.search-results, .error404)",
+    bodyDesktopClass = bodyClass + ".ast-desktop:not(.ast-header-break-point)",
+    bodyMobileClass = bodyClass + ":not(.ast-desktop).ast-header-break-point",
+    awsSearchClass = bodyDesktopClass + " " + ".aws.search>.search__wrapper",
+    awsSearchMobileClass = bodyMobileClass + " " + ".is-mobile-aws_search_form",
+    awsSearchFormSl = "> .aws-container >.aws-search-form",
+    awsSearchFormBtnSvgPthSl =
+      ".aws-container >.aws-search-form >.aws-search-btn.aws-form-btn>.aws-search-btn_icon>svg>path";
+
+  // window.$t = $(awsSearchClass);
+  /* Add break point Class and related trigger */
+  var updateHeaderBreakPoint = function () {
+    const body = document.body,
+      menu_toggle_all = document.querySelectorAll(
+        "#masthead .main-header-menu-toggle"
+      );
+    // Content overrflowing out of screen can give incorrect window.innerWidth.
+    // Adding overflow hidden and then calculating the window.innerWidth fixes the problem.
+    var originalOverflow = body.style.overflow;
+    body.style.overflow = "hidden";
+    var ww = window.innerWidth
+    body.style.overflow = originalOverflow;
+
+    var break_point = astra.break_point;
+
+    /**
+     * This case is when one hits a URL one after the other via `Open in New Tab` option
+     * Chrome returns the value of outer width as 0 in this case.
+     * This mis-calculates the width of the window and header seems invisible.
+     * This could be fixed by using `0 === ww` condition below.
+     */
+    if (ww >= break_point) {
+      //remove menu toggled class.
+      if (menu_toggle_all.length > 0) {
+        for (var i = 0; i < menu_toggle_all.length; i++) {
+          if (null !== menu_toggle_all[i]) {
+            menu_toggle_all[i].classList.remove("toggled");
+          }
+        }
+      }
+      body.classList.remove("ast-header-break-point");
+      body.classList.add("ast-desktop");
+      astraTriggerEvent(body, "astra-header-responsive-enabled");
+    } else {
+      body.classList.add("ast-header-break-point");
+      body.classList.remove("ast-desktop");
+      astraTriggerEvent(body, "astra-header-responsive-disabled");
+    }
+  };
+  if (1) {
+    const t = setInterval(() => {
+      
+      if ('function' === typeof $.fn.obsrResize) {
+        clearTimeout(t)
+        if (1) {
+          $(
+            `${bodyDesktopClass} #masthead #ast-desktop-header .ast-container .site-branding.ast-site-identity`
+          ).obsrResize(($el) => {
+            const w = $el.width(),
+              wP = $el.closest(".ast-container").width(),
+              wR = wP - 140 - w;
+            const h = $el.height();
+            if (wR > 0) {
+              $(":root").css({
+                "--ast_ch__aws-search-field--w": Math.round(wR) + "px",
+              });
+            }
+          });
+        }
+      }
+    }, 50);
+  }
+updateHeaderBreakPoint();
+  $(window).on("resize", function (e) {
+
+    updateHeaderBreakPoint();
+    
+    if ("INPUT" === document.activeElement.tagName) {
+      const $aEl = $(document.activeElement);
+      if (
+        $aEl.is(".aws-search-field") &&
+        ($aEl.closest("#ast-desktop-header").length ||
+          $aEl.closest("#ast-mobile-header").length)
+      ) {
+        $aEl
+          .trigger("blur")
+          .animate()
+          .delay(1)
+          .promise()
+          .done(function () {
+            $(window).trigger("resize");
+          });
+      }
+    } else {
+      const $html = $(document.documentElement);
+      const $body = $(document.body);
+      
+      $body
+        .animate()
+        .delay(100)
+        .promise()
+        .done(function () {
+          const bodyMobileSl =
+            bodyMobileClass + ".aws-search-mobile-block-focus",
+            bodyDesktopSl = bodyDesktopClass + ".aws-search-block-focus";
+          /*if ($body.is(bodyDesktopClass)) {
+                                                                $html.removeClass("ast-mobile_search-result_hidden");
+                                                            }*/
+
+          if ($body.is(bodyDesktopSl)) {
+            $body
+              .animate()
+              .delay(200)
+              .promise()
+              .done(function () {
+                $(
+                  bodyDesktopSl +
+                  awsSearchClass +
+                  " >.aws-container >.aws-search-form >.aws-wrapper input[type='search'].aws-search-field"
+                ).trigger("focus");
+              });
+          } else if ($body.is(bodyMobileSl)) {
+            const searchField = $(
+              bodyMobileSl +
+              awsSearchMobileClass +
+              ">.aws-container >.aws-search-form >.aws-wrapper input[type='search'].aws-search-field"
+            );
+            const $res = $body.find(".ast-mobile-header_search-result");
+            /*
+                                                                                                                            console.log({
+                                                                                                                                $res,
+                                                                                                                                top: $res.cssInt("top"),
+                                                                                                                                isHidden:$res.is(':hidden')
+                                                                                                                            });
+                                                                                                                        */
+
+            /*if ($res.is(":hidden")) {
+                                                                            $html.removeClass("ast-mobile_search-result_hidden");
+                                                                        } else {
+                                                                            $html.addClass("ast-mobile_search-result_hidden");
+                                                                        }*/
+            $body
+              .animate()
+              .delay(200)
+              .promise()
+              .done(function () {
+                searchField.trigger("focus");
+              });
+          }
+        });
+    }
+  });
+
+  $(
+    bodyClass +
+    " " +
+    ":is(.aws.search>.search__wrapper,.is-mobile-aws_search_form)>" +
+    awsSearchFormBtnSvgPthSl +
+    "," +
+    bodyClass +
+    " " +
+    ":is(#ast-hf-mobile-menu, .offcanvas-header) " +
+    awsSearchFormBtnSvgPthSl
+  ).each(function () {
+    const $awsIconPath = $(this);
+    $awsIconPath.attr(
+      "d",
+      "M16.296 16.996a8 8 0 11.707-.708l3.909 3.91-.707.707-3.909-3.909zM18 11a7 7 0 00-14 0 7 7 0 1014 0z"
+    );
+
+    $awsIconPath
+      .closest(".site-header-section")
+      .addClass("aws-search-header-section");
+
+    const $bodyMobile = $awsIconPath.closest(bodyMobileClass);
+    if ($bodyMobile.length) {
+      $awsIconPath
+        .closest(".aws-container")
+        .find(".aws-search-clear")
+        .on("click", function (e) {
+          const $bodyMobile = $(bodyMobileClass);
+          if ($bodyMobile.length) {
+            $bodyMobile.closest("html").css("overflow", "");
+          }
+        });
+    }
+  });
+  const filterAwsResultsLayoutDesktopSearchFocus = {
+    focus: function ($form) {
+      const awsSearchField = $form.find(">.aws-wrapper >.aws-search-field");
+
+      // console.log({ $form, awsSearchField, sl: $form.cssSelector(2) });
+      if (awsSearchField.length) {
+        awsSearchField
+          .animate()
+          .delay(1)
+          .promise()
+          .done(function () {
+            $(this).trigger("focus");
+          });
+      }
+    },
+    fn: function () {
+      setTimeout(() => {
+        "aws-form-active";
+        if ($(bodyDesktopClass).length) {
+          /** @type {JQuery} */
+          const $form = $(awsSearchClass).find(awsSearchFormSl);
+
+          if ($form.is(".aws-form-active") && !$form.is(".aws-focus")) {
+            this.focus($form);
+          }
+        }
+      }, 1);
+    },
+  };
+
+  const getAwsSearchField = () =>
+    $(
+      bodyClass +
+      " " +
+      "#ast-mobile-header .offcanvas.offcanvas-end .offcanvas-header " +
+      ".aws-container >.aws-search-form>.aws-wrapper>.aws-search-field"
+    );
+
+  function adjustResultsBlockWidth() {
+    const st = document.documentElement.style,
+    stW =getAwsSearchField().closest(".offcanvas").width() 
+    st.setProperty(
+      "--resBlk_wEm",stW/16
+    );
+    st.setProperty(
+      "--resBlk_width",
+      (stW - 15) + "px"
+    );
+  }
+  function adjustResultsBlockWidthRun() {
+    setTimeout(function () {
+      adjustResultsBlockWidth();
+      setTimeout(function () {
+        adjustResultsBlockWidth();
+        setTimeout(function () {
+          adjustResultsBlockWidth();
+        }, 150);
+      }, 50);
+    }, 50);
+  }
+
+  getAwsSearchField().on("focus", () => {
+    // console.log(`getAwsSearchField`, "focus");
+    adjustResultsBlockWidthRun();
+  });
+  AwsHooks.add_filter("aws_results_layout", function (styles, params) {
+    //console.log(`AwsHooks.add_filter("aws_results_layout"`, { styles, params });
+    /*
+                        params.form: div.aws-container
+                        */
+    /** @type {JQuery} */
+    const $form = params.form;
+    if (params.form.closest("#ast-mobile-header").length) {
+      adjustResultsBlockWidthRun();
+    }
+
+    if (
+      params.form.closest("#ast-mobile-header").length &&
+      !params.resultsBlock.is(".ast-mobile-header_search-result")
+    ) {
+      params.resultsBlock.addClass("ast-mobile-header_search-result");
+
+      if (
+        params.form.is(
+          "#ast-mobile-header .offcanvas.offcanvas-end .offcanvas-header .aws-container"
+        )
+      ) {
+        params.resultsBlock.addClass(
+          "ast-mobile-header-offcanvas-header_search-result"
+        );
+      }
+      //params.resultsBlock.style.setProperty('width','100%')
+      //params.resultsBlock.find(">ul").setProperty('max-height','calc(100vh - 14.5em)')
+
+      $form
+        .find(".aws-search-form")
+        .obsrAttrs("class", ($el, attrName, newValue, oldValue) => {
+          // console.log(`obsrAttrs "class"`, { newValue, oldValue, "aws-focus":$.strHas(newValue, "aws-focus")});
+
+          if ($.strHas(newValue, "aws-focus")) {
+            // console.log({".offcanvas":params.form.closest(".offcanvas")})
+            params.form
+              .closest(".offcanvas")
+              .addClass("ast-mobile-header-offcanvas-aws_focus");
+          } else {
+            params.form
+              .closest(".offcanvas")
+              .removeClass("ast-mobile-header-offcanvas-aws_focus");
+          }
+
+          if ($.strHas(newValue, "aws-form-active")) {
+            setTimeout(() => {
+              if ($(bodyMobileClass).length) {
+                $(document.documentElement).addClass(
+                  "ast-mobile_search-result_hidden"
+                );
+                // console.log({ animate: 1000 });
+                // $(awsSearchMobileClass).find(awsSearchFormSl)
+                const awsSearchField = $(".aws-container .aws-search-form")
+                  .filter((i, el) => $(el).closest("#ast-mobile-header").length)
+                  .find(">.aws-wrapper >.aws-search-field");
+
+                if (awsSearchField.length) {
+                  awsSearchField
+                    .animate()
+                    .delay(1)
+                    .promise()
+                    .done(function () {
+                      //console.log({ "is el": $(this).length > 0, delay: 1});
+                      $(this).trigger("focus");
+                    });
+                }
+              }
+            }, 1);
+          } else {
+            $(document.documentElement).removeClass(
+              "ast-mobile_search-result_hidden"
+            );
+          }
+        });
+      // console.log({ styles, form: params.form, params: params });
+    } else if (
+      params.form.closest("#ast-desktop-header").length &&
+      !params.resultsBlock.is(".ast-desktop-header_search-result")
+    ) {
+      params.resultsBlock.addClass("ast-desktop-header_search-result");
+
+      const searchForm = $form.find(".aws-search-form.aws-search-form");
+      searchForm.obsrAttrs("class", ($el, attrName, newValue, oldValue) => {
+        if ($.strHas(newValue, "aws-form-active")) {
+          filterAwsResultsLayoutDesktopSearchFocus.fn();
+        }
+      });
+
+      /*
+        document.addEventListener("visibilitychange", () => {
+            if (
+            document.visibilityState === "visible" &&
+            searchForm.is(".aws-form-active")
+            ) {
+            console.log("Page is now visible!");
+            // filterAwsResultsLayoutDesktopSearchFocus.fn();
+            } else {
+            console.log("Page is now hidden.");
+            }
+        });
+    */
+      // console.log({ styles, form: params.form, params: params });
+    }
+    return styles;
+  });
+
+  AwsHooks.add_filter("aws_results_html", function (html, params) {
+    // console.log(`AwsHooks.add_filter("aws_results_html"`, { html, params });
+    if (0) {
+      const $bodyMobile = $(bodyMobileClass);
+      if ($bodyMobile.length) {
+        const $html = $(document.documentElement);
+        $html.addClass("ast-mobile_search-result_hidden");
+      }
+    }
+    return html;
+  });
+
+  $("html").on("click touchstart", function (e) {
+    const $el = undefined !== e && undefined !== e.target ? $(e.target) : false;
+    if ($el) {
+      $(awsSearchClass).each(function () {
+        const $awsSearchBlock = $(this),
+          $body = $awsSearchBlock.closest(bodyClass);
+        if (
+          $body.is(":not(.aws-search-block-focus)") &&
+          $awsSearchBlock.is(":hover")
+        ) {
+          $body.addClass("aws-search-block-focus");
+          /*const t = $awsSearchBlock
+                                                      .find( awsSearchFormSl)
+                                                      .find(">.aws-wrapper >.aws-search-field");
+                              
+                                                  t.animate().delay(200)
+                                                      .promise()
+                                                      .done(function () {
+                                                          $(this).trigger("focus");
+                                                      });*/
+        } else if (
+          $body.is(".aws-search-block-focus") &&
+          $awsSearchBlock.is(":not(:hover)")
+        ) {
+          $body.removeClass("aws-search-block-focus");
+        }
+      });
+      $(awsSearchMobileClass).each(function () {
+        const $awsSearchMobileBlock = $(this),
+          $body = $awsSearchMobileBlock.closest(bodyClass),
+          isEvAwsSearchResult = $el.closest(".aws-search-result").length
+            ? true
+            : false;
+
+        let $p = $el.closest(awsSearchMobileClass);
+        $p = !$p.length ? false : $p;
+
+        if ($p && $body.is(":not(.aws-search-mobile-block-focus")) {
+          $body.addClass("aws-search-mobile-block-focus");
+          /*const t = $awsSearchMobileBlock
+                                                      .find(awsSearchFormSl)
+                                                      .find(">.aws-wrapper >.aws-search-field");
+                              
+                                                  t.animate().delay(200)
+                                                      .promise()
+                                                      .done(function () {
+                                                          $(this).trigger("focus");
+                                                      });*/
+        } else if (
+          !$p &&
+          $body.is(".aws-search-mobile-block-focus") &&
+          !isEvAwsSearchResult
+        ) {
+          $body.removeClass("aws-search-mobile-block-focus");
+        }
+      });
+    }
+  });
+})(jQuery);

@@ -1,0 +1,724 @@
+(($) => {
+  "use strict";
+
+  const bodyClass = ".body_astra-child-001",
+    bodyDesktopClass = bodyClass + ".ast-desktop:not(.ast-header-break-point)",
+    bodyMobileClass = bodyClass + ":not(.ast-desktop).ast-header-break-point",
+    astDesktopHeaderSelector = bodyClass + " #masthead #ast-desktop-header",
+    astHeaderBarSelector =
+      astDesktopHeaderSelector +
+      " .ast-main-header-wrap .ast-primary-header-bar .site-primary-header-wrap .ast-builder-grid-row",
+    astHeaderMobileBarSelector =
+      bodyClass +
+      " #masthead #ast-mobile-header .ast-main-header-wrap .ast-primary-header-bar .ast-builder-grid-row",
+    astHeaderMobileBarContentNavSelector =
+      bodyMobileClass +
+      " #ast-mobile-header .ast-mobile-header-content .offcanvas.offcanvas-end .offcanvas-body nav.site-navigation";
+
+  const domHooks = (function () {
+    const handlers = {};
+
+    $(window).on(
+      "scroll",
+      $.debounce(function (ev) {
+        if (
+          undefined !== handlers["window.scroll"] &&
+          Array.isArray(handlers["window.scroll"])
+        ) {
+          handlers["window.scroll"].forEach((cb) => {
+            return "function" === typeof cb && cb(ev);
+          });
+        }
+      }, 100)
+    );
+    return {
+      _invokeCallback($el, cb) {
+        "function" === typeof cb && cb($el);
+      },
+      addHnd(n, cb) {
+        if ("function" === typeof cb) {
+          if ("window.scroll" === n) {
+            cb = $.scrlDltY(cb);
+          }
+
+          if (undefined === handlers[n]) {
+            handlers[n] = [cb];
+          } else {
+            handlers[n].push(cb);
+          }
+        }
+      },
+      onMasthead(cb) {
+        const $masthead = $(astHeaderBarSelector)
+          .closest("#ast-desktop-header")
+          .closest("#masthead");
+        this._invokeCallback($masthead, cb);
+      },
+
+      onFooter(cb) {
+        const $footer = $(`${bodyClass} .footer_astra-child-001`);
+        this._invokeCallback($footer, cb);
+      },
+    };
+  })();
+
+  try {
+    const onResize = $.throttle(
+      (
+        /**
+         * @type {JQuery<Element>}
+         */
+        $el,
+        w,
+        h
+      ) => {
+        const is_Mobile = $el.closest("#ast-mobile-header").length > 0;
+        //$.css
+        $(":root").css({
+          "--ast_ch__header-bar--h": h + "px",
+          "--ast_ch__header-bar--w": w + "px",
+        });
+
+        // console.log({ is_Mobile, $el, w, h });
+      },
+      250
+    );
+    try {
+      $([
+        document.querySelector(astHeaderBarSelector),
+        document.querySelector(astHeaderMobileBarSelector),
+      ]).obsrResize(function ($el) {
+        if ($el[0] instanceof Element) {
+          const wCl = document.documentElement.clientWidth;
+          const w = $el.width();
+          const h = $el.height();
+          if (w > 0 && h > 0) {
+            onResize($el, w, h);
+          }
+        }
+      });
+    } catch (error) {
+      console.log({ error });
+    }
+  } catch (error) {
+    console.log({ error });
+  }
+
+  if (0) {
+    const fnScroll = $.throttle(() => {
+      const y = window.pageYOffset;
+
+      let pstH = 0,
+        scrOf = 0,
+        position = "";
+
+      if (y < 10 || y < 120) {
+        pstH = y / (document.body.offsetHeight - window.innerHeight);
+        scrOf = (80 / 40000) * y;
+      } else {
+        scrOf = (80 / 40000) * 120;
+      }
+
+      $(":root").css({
+        "--ast_ch__header-bar-limPst_0_14--scroll": pstH,
+        "--ast_ch__header-bar-lim_120--scrOf": scrOf,
+        "--ast_ch__header-bar-lim_120--scrOf_css_position": position,
+      });
+      if (y < 50) {
+        $(astHeaderBarSelector)
+          .closest("#ast-desktop-header")
+          .attr("is-scroll-m-top", true);
+      } else {
+        $(astHeaderBarSelector)
+          .closest("#ast-desktop-header")
+          .removeAttr("is-scroll-m-top");
+      }
+    }, 10);
+
+    window.addEventListener("scroll", fnScroll);
+    fnScroll();
+  }
+
+  if (1) {
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top < window.innerHeight &&
+        rect.bottom > 0 &&
+        rect.left < window.innerWidth &&
+        rect.right > 0
+      );
+    }
+
+    function onIntersectionObserver(elements, cb) {
+      $(elements).obsrIntrsec(($el, isOn, entry, obsr) => {
+        cb($el, isOn, entry, obsr);
+      });
+    }
+    const fn1 = $.debounce(onIntersectionObserver, 1),
+      fn2 = $.debounce(onIntersectionObserver, 400);
+
+    const fn3 = $.debounce(onIntersectionObserver, 800),
+      fn4 = $.debounce(onIntersectionObserver, 1),
+      fn5 = $.debounce(onIntersectionObserver, 1);
+
+    if (0) {
+      const selDesk2Sec = `${bodyClass} #primary main#main article.page>*>*>.e-con`;
+      // Usage
+      fn1(
+        document.querySelectorAll(`${selDesk2Sec}:nth-of-type(n + 2)`),
+        ($el, isOn, entry, obsr) => {
+          if (isOn) {
+            //console.log({ $el, "nth-child(n + 2)": `is now visible` });
+
+            const p0 = $(astHeaderBarSelector).closest("#ast-desktop-header"),
+              p1 = p0.closest("#masthead");
+
+            Array.from([p0, p1]).forEach(($p) => {
+              $p.removeAttr("is-scroll-m-top");
+            });
+          }
+        }
+      );
+
+      // Usage
+
+      fn2(
+        document.querySelectorAll(
+          `${selDesk2Sec}:nth-of-type(-n + 2)`
+          // " #primary main#main article.page>*>*>.e-con .e-con-inner:nth-of-type(-n + 2)"
+        ),
+        ($el, isOn, entry, obsr) => {
+          if (isOn) {
+            const isOnTop =
+              $el[0].getBoundingClientRect().y >
+              ($el.closest("body").is(".admin-bar") ? 0 : -16),
+              p0 = $(astHeaderBarSelector).closest("#ast-desktop-header"),
+              p1 = p0.closest("#masthead");
+
+            Array.from([p0, p1]).forEach(($p) => {
+              if (isOnTop) {
+                $p.attr("is-scroll-m-top", true);
+                p1.removeClass("desktop-header-on-hover");
+              } else {
+                $p.removeAttr("is-scroll-m-top");
+              }
+            });
+          }
+        }
+      );
+    }
+    if (1) {
+      const fn = ({ isUp }) => {
+        const p0 = $(astHeaderBarSelector).closest("#ast-desktop-header"),
+          p1 = p0.closest("#masthead");
+        const tr = 200 + ($("body").is(".admin-bar") ? 0 : -16);
+        if (!isUp) {
+          if (window.scrollY > tr) {
+            Array.from([p0, p1]).forEach(($p) => {
+              $p.removeAttr("is-scroll-m-top");
+            });
+          }
+        } else {
+          if (window.scrollY < tr) {
+            Array.from([p0, p1]).forEach(($p) => {
+              $p.attr("is-scroll-m-top", true);
+            });
+          }
+        }
+      };
+
+      domHooks.addHnd("window.scroll", ({ ev, deltaY, isUp }) => {
+        if (ev.target instanceof Document) {
+          fn({ isUp });
+        }
+      });
+      fn({ isUp: true });
+    }
+
+    if (0) {
+      fn3(
+        document.querySelectorAll(`${bodyClass} .footer_astra-child-001`),
+        (
+          /**
+           * @type {JQuery<Element>}
+           */
+          $el,
+          isOn,
+          entry,
+          obsr
+        ) => {
+          const $masthead = $(astHeaderBarSelector)
+            .closest("#ast-desktop-header")
+            .closest("#masthead");
+
+          console.log({
+            "rootBounds.height": entry.rootBounds.height,
+            scrollY: window.scrollY,
+          });
+
+          if (isOn && entry.rootBounds.height > 300) {
+            $masthead.attr("is-hide", true);
+          } else {
+            $masthead.removeAttr("is-hide");
+          }
+        }
+      );
+    }
+
+    fn4(
+      document.querySelectorAll(`${bodyClass}.admin-bar>#wpadminbar`),
+      ($el, isOn, entry, obsr) => {
+        const $masthead = $(astHeaderBarSelector)
+          .closest("#ast-desktop-header")
+          .closest("#masthead");
+        if (isOn) {
+          $masthead.removeAttr("no-admin-bar-visible");
+        } else {
+          $masthead.attr("no-admin-bar-visible", true);
+        }
+      }
+    );
+
+    fn5(
+      document.querySelectorAll(
+        `${bodyClass} header#masthead.site-header > #ast-mobile-header .offcanvas.offcanvas-end`
+      ),
+      ($el, isOn, entry, obsr) => {
+        const t = setTimeout(() => {
+          const isMobile = $el
+            .closest("body")
+            .is(":not(.ast-desktop).ast-header-break-point");
+
+          if (isMobile && isOn) {
+            $el.closest("html").addClass("no-scroll_force");
+          } else {
+            $el.closest("html").removeClass("no-scroll_force");
+          }
+          clearTimeout(t);
+        }, 1);
+      }
+    );
+  }
+
+  if (1) {
+    const fnOnPointer = $.throttle((ev) => {
+      let isOn = false,
+        $elHeaderBar = false,
+        $tEl,
+        $el,
+        isOnAwsSearchResult = false;
+      if (undefined !== ev) {
+        $tEl = $(ev.target);
+        if (
+          undefined === $tEl ||
+          $tEl.is("html") ||
+          $tEl.is("body>#wpadminbar") ||
+          $tEl.closest("body>#wpadminbar").length
+        ) {
+          return;
+        }
+        $el = $tEl.closest(
+          `${bodyClass} :is(#ast-desktop-header,#ast-mobile-header)`
+        );
+        if (undefined !== $el[0]) {
+          isOn = true;
+        } else {
+          isOnAwsSearchResult =
+            $tEl.closest(".aws-search-result").length ||
+              $tEl.is(".aws-search-result")
+              ? true
+              : false;
+        }
+      } else {
+        return;
+      }
+
+      [
+        $(bodyDesktopClass + " #ast-desktop-header"),
+        $(bodyMobileClass + " #ast-mobile-header"),
+      ].forEach((_el) => {
+        const $_el = _el;
+
+        if (false === $elHeaderBar) {
+          $elHeaderBar =
+            $_el.length && undefined !== $_el.eq(0)[0] ? $_el.eq(0) : false;
+        }
+      });
+
+      if ($elHeaderBar) {
+        if (
+          /* undefined === $el ||
+         !$el.length */
+          !isOn &&
+          !isOnAwsSearchResult
+          /*|| "true" !== $elHeader.attr("is-scroll-m-top")*/
+        ) {
+          // console.log({isOnAwsSearchResult,$elHeaderBar})
+          $elHeaderBar
+            .closest("#masthead")
+            .removeClass("desktop-header-on-hover");
+          $elHeaderBar.closest("html").css("overflow", "");
+
+          // console.log({ $tEl });
+        } else {
+          $elHeaderBar.closest("#masthead").addClass("desktop-header-on-hover");
+        }
+      }
+    }, 100);
+
+    $(window.document).on(
+      "pointerdown pointermove pointerup touchstart touchmove",
+      fnOnPointer
+    );
+    fnOnPointer();
+  }
+
+  if (1) {
+    const $t = $('#masthead > #ast-mobile-header[data-type="dropdown"]');
+
+    if ($t.length) {
+      const $a = $t.find(".menu-item.menu-item-has-children>a.menu-link");
+      $a.closest(".menu-item").on(
+        "click",
+        $.withStopPropagation(function (e) {
+          const $e = $(e.target);
+          if ($e.is("a.menu-link")) {
+            const $b = $e.siblings("button.ast-menu-toggle").eq(0);
+            if ($b.length) {
+              $b.trigger("click");
+            }
+          }
+        })
+      );
+    }
+  }
+  if (1) {
+    const fn = $.debounce(function onIntersectionObserver(elements, cb) {
+      $(elements).obsrIntrsec(($el, isOn, entry, obsr) => {
+        cb($el, isOn, entry, obsr);
+      });
+    }, 400);
+
+    fn(
+      document.querySelectorAll(
+        bodyMobileClass +
+        // ".ast-main-header-nav-open" +
+        " " +
+        "#ast-mobile-header.ast-mobile-header-wrap .ast-mobile-header-content"
+      ),
+      ($el, isOn, entry, obsr) => {
+        if (isOn) {
+          $el.closest("html").addClass("no-scroll_force");
+          // console.log({ $el, isOn });
+          /* $(astHeaderBarSelector)
+            .closest("#ast-desktop-header")
+            .removeAttr("is-scroll-m-top");
+          $(astHeaderBarSelector)
+            .closest("#ast-desktop-header")
+            .closest("#masthead")
+            .removeAttr("is-scroll-m-top");*/
+        } else {
+          $el.closest("html").removeClass("no-scroll_force");
+        }
+      }
+    );
+  }
+
+  if (1) {
+    $(window).on(
+      "scroll",
+      $.debounce(function () {
+        domHooks.onMasthead(function ($masthead) {
+          const isMobile = $masthead
+            .closest("body")
+            .is(":not(.ast-desktop).ast-header-break-point"),
+            y0 =
+              window.scrollY +
+              window.innerHeight +
+              (!isMobile ? 0 : 26) -
+              ($masthead.closest("body").is(".admin-bar") ? 0 : -16),
+            h0 = document.documentElement.scrollHeight;
+
+          if (y0 < h0) {
+            $masthead.removeAttr("is-hide");
+          } else {
+            $masthead.attr("is-hide", true);
+          }
+        });
+      }, 100)
+    );
+  }
+  if (1) {
+    if ("undefined" !== typeof bootstrap) {
+      const $offcanvas = $("#offcanvasNavbar.offcanvas");
+      const offcanvas = new bootstrap.Offcanvas($offcanvas[0]);
+
+      $offcanvas.on(
+        "hidden.bs.offcanvas",
+        $.debounce(function (ev) {
+          // do something...
+          const ct = $(ev.target)
+            .closest("#ast-mobile-header")
+            .find(">.ast-mobile-header-content");
+          ct.hide();
+        }, 10)
+      );
+      $offcanvas.on(
+        "show.bs.offcanvas",
+        $.debounce(function (ev) {
+          // do something...
+          const $ct = $(ev.target).find(
+            ".offcanvas-body .main-navigation .ast_ch1-submenu-always-expanded >.sub-menu:not([init])"
+          );
+
+          if ($ct.length) {
+            $ct.attr("init", true);
+            $ct.css("display", "block");
+          }
+        }, 1)
+      );
+
+      $offcanvas.obsrIntrsec(($el, isOn, entry, obsr) => {
+        if (isOn) {
+          const cl = ".ast_ch1-submenu-always-expanded";
+          const $ct = $el.find(
+            ".offcanvas-body .main-navigation .ast_ch1-submenu-always-expanded >.sub-menu"
+          );
+
+          if ($ct.closest(cl).is('[is_closed="true"]')) {
+            $ct.css("display", "none");
+          } else {
+            $ct.css("display", "block");
+          }
+        }
+      });
+
+      $(document).on(
+        "click",
+        astHeaderMobileBarSelector +
+        " button.menu-toggle.ast-mobile-menu-trigger-minimal",
+        $.debounce(function (ev) {
+          const ct = $(ev.target)
+            .closest("#ast-mobile-header")
+            .find(">.ast-mobile-header-content");
+
+          if (ct.length) {
+            ct.closest("#masthead").removeClass("desktop-header-on-hover");
+            ct.show()
+              .animate()
+              .delay(10)
+              .promise()
+              .done(function () {
+                offcanvas.show();
+              });
+          }
+        }, 100)
+      );
+    }
+  }
+  if (1) {
+    const cl = ".ast_ch1-submenu-always-expanded";
+    const t = $(astHeaderMobileBarContentNavSelector + " " + cl).on(
+      "click",
+      $.throttle(function (ev) {
+        const $el = $(ev.target);
+        if (
+          $el.is(".ast_ch1-submenu-always-expanded") ||
+          $el.is(".ast_ch1-submenu-always-expanded > a.menu-link")
+        ) {
+          const $ct = $(this).find(">ul.sub-menu"),
+            $p = $ct.closest(cl);
+          if (!$ct.is(":visible")) {
+            $p.removeAttr("is_closed");
+          } else {
+            $p.attr("is_closed", true);
+          }
+
+          $ct.animate({
+            height: "toggle",
+          });
+        }
+      }, 100)
+    );
+
+    // console.log("The box", { t: t.find('>li.sub-menu') });
+
+    //t.find('>li.sub-menu').css('display',null);
+  }
+
+  if (0) {
+    $(window).on(
+      "scroll",
+      $.throttle(function () {
+        const $win = $(this);
+        /*
+                                      $=jQuery
+                                      $(window)
+                                  */
+        /**
+         * @type {JQuery<Element>}
+         */
+        const $els = $(
+          astHeaderBarSelector + "," + astHeaderMobileBarSelector
+        ).map(function () {
+          return $(this).parent();
+        });
+        const $dataKey = "def_css-min-height";
+        $els.each(function () {
+          const $el = $(this);
+
+          const v = $el.data($dataKey);
+          if (undefined === v) {
+            //console.log({ $el });
+            const vCss = $el.css("min-height");
+            //console.log({ $dataKey, "min-height": vCss });
+            $el.data($dataKey, vCss);
+          }
+        });
+
+        if ($win.scrollTop() > 10) {
+          $els.each(function () {
+            const $el = $(this);
+            const isOpen = $el.data("isOpen");
+            // console.log({ $el, isOpen});
+            if (undefined === isOpen || true === isOpen) {
+              //$('#page #content.site-content').addClass('ast-ch-001-no-header-bar')
+              $el.css("min-height", "auto");
+              $el.fadeOut();
+              $el.data("isOpen", false);
+            }
+          });
+
+          //console.log({ $win, 'scrollTop > 135 ': $win.scrollTop() > 135 });
+        } else {
+          $els.each(function () {
+            const $el = $(this);
+            if ($el.data("isOpen") === false) {
+              const v = $el.data($dataKey);
+              if (undefined !== v) {
+                // console.log({ $el, data: v });
+                $el.css("min-height", v);
+              }
+              $el.data("isOpen", true);
+              //$('#page #content.site-content').removeClass('ast-ch-001-no-header-bar')
+              $el.fadeIn();
+            }
+          });
+        }
+      }, 300)
+    );
+  }
+  if (0) {
+    $(window).on(
+      "scroll",
+      $.throttle(function () {
+        const $win = $(this);
+        /*
+                                      $=jQuery
+                                      $(window)
+                                  */
+        /**
+         * @type {JQuery<Element>}
+         */
+        const $els = $(
+          astHeaderBarSelector + "," + astHeaderMobileBarSelector
+        ).map(function () {
+          return $(this).parent();
+        });
+        const $dataKey = "def_css-min-height";
+        $els.each(function () {
+          const $el = $(this);
+
+          const v = $el.data($dataKey);
+          if (undefined === v) {
+            //console.log({ $el });
+            const vCss = $el.css("min-height");
+            //console.log({ $dataKey, "min-height": vCss });
+            $el.data($dataKey, vCss);
+          }
+        });
+
+        if ($win.scrollTop() > 10) {
+          $els.each(function () {
+            const $el = $(this);
+            //$('#page #content.site-content').addClass('ast-ch-001-no-header-bar')
+            $el.css("min-height", "auto");
+            // $el.fadeOut();
+            $el.animate(
+              {
+                height: "100",
+              },
+              200,
+              function () {
+                // Animation complete.
+                //$el.css("display", 'none')
+                //el.css("height", '')
+                $el.css("height", "");
+                $el.css("min-height", "");
+                $el.animate(
+                  {
+                    // opacity: 0,
+                    // height: "-=50",
+                  },
+                  200,
+                  function () {
+                    // Animation complete.
+                    //$el.css("display", 'none')
+                    // $el.css("height", '')
+                  }
+                );
+              }
+            );
+          });
+
+          //console.log({ $win, 'scrollTop > 135 ': $win.scrollTop() > 135 });
+        } else {
+          $els.each(function () {
+            const $el = $(this);
+            const v = $el.data($dataKey);
+            if (undefined !== v) {
+              // console.log({ $el, data: v });
+              // $el.css("min-height", v);
+            }
+            //$('#page #content.site-content').removeClass('ast-ch-001-no-header-bar')
+
+            $el.animate(
+              {
+                // opacity: 1,
+                height: "80",
+              },
+              300,
+              function () {
+                // Animation complete.
+                $el.css("height", "");
+                $el.css("min-height", "");
+                $el.animate(
+                  {
+                    // height: "-=50",
+                  },
+                  500,
+                  function () {
+                    // Animation complete.
+                  }
+                );
+              }
+            );
+            /*$el.css("display", '').animate({
+                                                                opacity: 1,
+                                                                height: "+=50",
+                                                              }, 500, function() {
+                                                                // Animation complete.
+                                                
+                                                                $el.animate({
+                                                                    height: "-=50",
+                                                                  }, 500, function() {
+                                                                    // Animation complete.
+                                                                  });
+                                                              });*/
+          });
+        }
+      }, 300)
+    );
+  }
+})(jQuery);

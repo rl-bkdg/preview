@@ -1,0 +1,140 @@
+/**
+ * MarqueeEngine v1.0.0
+ * High-Performance Asset Orchestration Engine
+ * 
+ * File: m3-marquee-handler.js
+ * Path: /assets/js/widgets/
+ * * @author Elite JS Refactorer
+ * @license MIT
+ */
+((c, s, a) => {
+  class g {
+    /** @type {Object} State Management (SSoT) */
+    #t = {
+      currentX: 0,
+      targetSpeed: 0,
+      activeSpeed: 0,
+      lastTime: performance.now(),
+      isHovered: !1,
+      isDragging: !1,
+      startX: 0,
+      totalMove: 0,
+      isInitialized: !1,
+      rafId: null
+    };
+    /** @type {Object} Configuration Registry */
+    #e = {};
+    constructor(t, e = {}) {
+      if (this.nodes = {
+        viewport: a.getElementById(`${t}-viewport`),
+        track: a.getElementById(`${t}-track`)
+      }, !this.nodes.viewport || !this.nodes.track)
+        throw new Error(`[MarqueeEngine] Target nodes for "${t}" not found in DOM.`);
+      this.#e = {
+        speed: parseFloat(e.speed) || 1.2,
+        gap: parseFloat(e.gap) || 1,
+        brandCount: parseInt(e.brandCount) || 0,
+        brandsData: e.brandsData || [],
+        aspect: 3
+      }, this.init();
+    }
+    /**
+     * Orchestrate Initialization (Idempotent)
+     * SRP: lifecycle management
+     */
+    init() {
+      this.terminate(), this.#s(), this.#r(), this.#a(), this.#t.targetSpeed = this.#e.speed, this.#t.activeSpeed = this.#e.speed, this.#t.isInitialized = !0, this.#t.rafId = requestAnimationFrame((t) => this.#i(t));
+    }
+    #s() {
+      const t = s.innerHeight;
+      this.nodes.viewport.setAttribute("height", t), this.dimensions = {
+        logoHeight: t,
+        logoWidth: t * this.#e.aspect
+      }, this.dimensions.step = this.dimensions.logoWidth * 0.5 + this.#e.gap, this.dimensions.setWidth = this.#e.brandCount * this.dimensions.step;
+    }
+    /**
+     * Triple-Buffer Cloned Node Strategy
+     * SRP: DOM Orchestration for zero-latency looping
+     */
+    #r() {
+      let t = "";
+      const { brandCount: e, brandsData: i } = this.#e, { step: r, setWidth: h, logoWidth: n, logoHeight: p } = this.dimensions;
+      for (let d = 0; d < 3; d++)
+        i.forEach((u, l) => {
+          const f = d * h + l * r;
+          t += this.#n(u, l, f, n, p);
+        });
+      this.nodes.track.innerHTML = t;
+    }
+    #n(t, e, i, r, h) {
+      return `
+                <a xlink:href="${t.link || "#"}" target="${t.external || "_self"}">
+                    <use href="#logo-${e}" x="${i}" y="0" width="${r}" height="${h}" 
+                         class="marquee-item" data-index="${e}" style="pointer-events: all;" />
+                </a>`;
+    }
+    #a() {
+      const { track: t } = this.nodes;
+      t.addEventListener("mouseenter", () => this.#t.isHovered = !0), t.addEventListener("mouseleave", () => this.#h()), t.addEventListener("pointerdown", (e) => this.#o(e)), s.addEventListener("pointermove", (e) => this.#d(e)), s.addEventListener("pointerup", () => this.#l()), t.addEventListener("click", (e) => this.#c(e));
+    }
+    #h() {
+      this.#t.isHovered = !1, this.#t.isDragging = !1;
+    }
+    #o(t) {
+      this.#t.isDragging = !0, this.#t.startX = t.clientX, this.#t.totalMove = 0, this.nodes.track.style.cursor = "grabbing", this.nodes.track.setPointerCapture(t.pointerId);
+    }
+    #d(t) {
+      if (!this.#t.isDragging) return;
+      const e = t.clientX - this.#t.startX;
+      this.#t.currentX += e, this.#t.startX = t.clientX, this.#t.totalMove += Math.abs(e);
+    }
+    #l() {
+      this.#t.isDragging = !1, this.nodes.track.style.cursor = "pointer";
+    }
+    /**
+     * Logic-Branching for Editor/External Contexts
+     */
+    #c(t) {
+      if (this.#t.totalMove > 5) {
+        t.preventDefault();
+        return;
+      }
+      const e = a.elementsFromPoint(t.clientX, t.clientY).find((n) => n.classList.contains("marquee-item"));
+      if (!e) return;
+      const i = e.closest("a"), r = i.getAttribute("xlink:href"), h = i.getAttribute("target");
+      if (h === "_blank") {
+        const n = a.createElement("a");
+        Object.assign(n, { href: r, target: h, rel: "noopener noreferrer" }), a.body.appendChild(n), n.click(), a.body.removeChild(n);
+      } else
+        s.top.location.href = r;
+    }
+    /**
+     * High-Performance Animation Pipeline
+     * Uses GPU-accelerated transforms via CSS Variables
+     */
+    #i(t) {
+      if (!this.#t.isInitialized) return;
+      const e = t - this.#t.lastTime;
+      this.#t.lastTime = t, this.#t.targetSpeed = this.#t.isDragging || this.#t.isHovered ? 0 : this.#e.speed, this.#t.activeSpeed += (this.#t.targetSpeed - this.#t.activeSpeed) * 0.12, this.#t.isDragging || (this.#t.currentX -= this.#t.activeSpeed / 16.66 * e);
+      const i = this.dimensions.setWidth;
+      this.#t.currentX <= -i && (this.#t.currentX += i), this.#t.currentX > 0 && (this.#t.currentX -= i), this.nodes.track.style.setProperty("--offset", `${this.#t.currentX.toFixed(3)}px`), this.#t.rafId = requestAnimationFrame((r) => this.#i(r));
+    }
+    /**
+     * Memory Management & Teardown
+     */
+    terminate() {
+      this.#t.isInitialized = !1, this.#t.rafId && (cancelAnimationFrame(this.#t.rafId), this.#t.rafId = null);
+    }
+  }
+  c(() => {
+    if (typeof s.MARQUEE_DATA > "u")
+      return console.error("[Marquee] Error: SSoT (MARQUEE_DATA) missing.");
+    const o = new URLSearchParams(s.location.search);
+    s.M3Marquee = new g("m3-svg", {
+      speed: o.get("speed") || 1.2,
+      gap: o.get("gap") || 1,
+      brandCount: s.MARQUEE_DATA.count || 0,
+      brandsData: s.MARQUEE_DATA.brands || []
+    });
+  });
+})(window.jQuery, window, document);
